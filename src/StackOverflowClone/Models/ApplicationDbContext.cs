@@ -13,5 +13,7 @@ namespace StackOverflowClone.Models
         {
             base.OnModelCreating(builder);
         }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
     }
 }

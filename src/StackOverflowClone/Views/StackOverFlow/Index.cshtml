@@ -1,0 +1,24 @@
+﻿@model IEnumerable<StackOverflowClone.Models.Question>
+
+<h2>Here is your list of Questions, @User.Identity.Name</h2>
+<hr />
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listItem in Model)
+        {
+            <p>title:</p>
+            <li>@Html.ActionLink(listItem.Title, "Question", "StackOverflow", new { id = listItem.Id })</li>
+            <p>text:</p>
+            <li>@Html.DisplayFor(modelItem => listItem.Text)</li>
+            <hr />
+        }
+    </ul>
+}
+else
+{
+    <p>No question have been added yet!</p>
+}
+
+@Html.ActionLink("Create new", "Create")

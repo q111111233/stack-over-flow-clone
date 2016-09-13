@@ -1,0 +1,24 @@
+﻿@model IEnumerable<StackOverflowClone.Models.Answer>
+
+    <h2>Here is your list of Answers, @User.Identity.Name</h2>
+    <hr />
+
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var listItem in Model)
+            {
+                <p>text:</p>
+                <li>@Html.DisplayFor(modelItem => listItem.Text)</li>
+                <hr />
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No answers have been added yet!</p>
+    }
+
+    @Html.ActionLink("Create new", "CreateAnswer", "StackOverflow", new { id = ViewBag.QuestionId})
+<br />
+@Html.ActionLink("Back to List", "Index")
